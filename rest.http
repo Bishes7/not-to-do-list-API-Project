@@ -1,0 +1,15 @@
+@baseURl = http://localhost:8000
+
+### Post Method
+POST {{baseURl}}
+
+### Get Method
+GET {{baseURl}}
+
+
+### Put Method
+PUT {{baseURl}}
+
+
+### Delete Method
+DELETE {{baseURl}}
