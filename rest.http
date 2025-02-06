@@ -1,4 +1,4 @@
-@baseURl = http://localhost:8000
+@baseURl = http://localhost:8000/api/v1/tasks
 
 ### Post Method
 POST {{baseURl}}
