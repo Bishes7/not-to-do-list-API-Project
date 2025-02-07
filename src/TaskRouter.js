@@ -2,8 +2,12 @@ import express from "express";
 
 const router = express.Router();
 
+let DB = [];
+
 //  Get Method
 router.get("/", (req, res, next) => {
+  DB.push(req.query);
+  console.log(DB);
   res.json({
     message: "Message from get",
   });
@@ -11,9 +15,11 @@ router.get("/", (req, res, next) => {
 
 // Post Method
 
-router.post("/,", (req, res, next) => {
+router.post("/", (req, res, next) => {
+  DB.push(req.body);
+  console.log(DB);
   res.json({
-    message: "Message from post",
+    message: "data hase been updated successfully",
   });
 });
 

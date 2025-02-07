@@ -2,14 +2,23 @@
 
 ### Post Method
 POST {{baseURl}}
+Content-Type: application/json
+
+{
+    "task": "coding",
+    "hours": 50
+}
 
 ### Get Method
 GET {{baseURl}}
-
+       
 
 ### Put Method
 PUT {{baseURl}}
+Content-Type: application/json
+
 
 
 ### Delete Method
 DELETE {{baseURl}}
+Content-Type: application/json
