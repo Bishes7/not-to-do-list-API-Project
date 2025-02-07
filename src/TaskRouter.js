@@ -2,7 +2,27 @@ import express from "express";
 
 const router = express.Router();
 
-let DB = [];
+let DB = [
+  {
+    id: 1,
+    task: "coding",
+    hours: 50,
+    type: "entry",
+  },
+
+  {
+    id: 2,
+    task: "cooking",
+    hours: 30,
+    type: "entry",
+  },
+  {
+    id: 3,
+    task: "Playing",
+    hours: 10,
+    type: "entry",
+  },
+];
 
 //  Get Method
 router.get("/", (req, res, next) => {
@@ -25,9 +45,19 @@ router.post("/", (req, res, next) => {
 
 // Put Method
 
-router.put("/", (req, res, next) => {
+router.patch("/", (req, res, next) => {
+  const { id, type } = req.body;
+
+  DB = DB.map((item) => {
+    if (item.id === id) {
+      item.type = type;
+      return item;
+    } else {
+      return item;
+    }
+  });
   res.json({
-    message: "Message from put",
+    message: "Task Updated",
   });
 });
 

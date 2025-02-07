@@ -4,21 +4,26 @@
 POST {{baseURl}}
 Content-Type: application/json
 
-{
-    "task": "coding",
-    "hours": 50
-}
+
 
 ### Get Method
 GET {{baseURl}}
        
 
 ### Put Method
-PUT {{baseURl}}
+PATCH  {{baseURl}}
 Content-Type: application/json
+
+{
+    "id":2,
+    "type": "bad"
+}
 
 
 
 ### Delete Method
 DELETE {{baseURl}}
 Content-Type: application/json
+
+
+
