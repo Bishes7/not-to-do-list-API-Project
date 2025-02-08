@@ -22,7 +22,7 @@ Content-Type: application/json
 
 
 ### Delete Method
-DELETE {{baseURl}}
+DELETE {{baseURl}}/3
 Content-Type: application/json
 
 

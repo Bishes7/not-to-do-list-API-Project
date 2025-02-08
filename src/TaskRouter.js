@@ -63,7 +63,10 @@ router.patch("/", (req, res, next) => {
 
 // Delete Method
 
-router.delete("/", (req, res, next) => {
+router.delete("/:id", (req, res, next) => {
+  const { id } = req.params;
+
+  DB = DB.filter((item) => item.id !== +id);
   res.json({
     message: "Message from delete",
   });
