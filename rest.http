@@ -4,13 +4,17 @@
 POST {{baseURl}}
 Content-Type: application/json
 
+{
+"fName":"Bishes",
+"lName":"Adhikari"
+}
 
 
 ### Get Method
 GET {{baseURl}}
        
 
-### Put Method
+### Put Method 
 PATCH  {{baseURl}}
 Content-Type: application/json
 

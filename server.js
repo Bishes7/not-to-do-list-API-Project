@@ -6,6 +6,10 @@ app.use(express.json());
 
 const PORT = 8000;
 
+import { connectMongoDb } from "./src/dbConfig.js";
+
+connectMongoDb();
+
 import taskRouter from "./src/TaskRouter.js";
 
 // Using the middleware

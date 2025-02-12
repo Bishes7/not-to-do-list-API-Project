@@ -1,45 +1,35 @@
 import express from "express";
 
 const router = express.Router();
+import mongoose, { Schema } from "mongoose";
 
-let DB = [
-  {
-    id: 1,
-    task: "coding",
-    hours: 50,
-    type: "entry",
-  },
+// Database table selection
 
-  {
-    id: 2,
-    task: "cooking",
-    hours: 30,
-    type: "entry",
-  },
-  {
-    id: 3,
-    task: "Playing",
-    hours: 10,
-    type: "entry",
-  },
-];
+// Database  table selection
+const taskSchema = new mongoose.Schema({}, { strict: false });
+const TaskCollection = mongoose.model("Task", taskSchema);
 
 //  Get Method
-router.get("/", (req, res, next) => {
-  DB.push(req.query);
-  console.log(DB);
+router.get("/", async (req, res, next) => {
+  const task = await TaskCollection.find();
+  console.log(task);
+
   res.json({
     message: "Message from get",
+    task,
   });
 });
 
 // Post Method
 
-router.post("/", (req, res, next) => {
-  DB.push(req.body);
-  console.log(DB);
+router.post("/", async (req, res, next) => {
+  console.log(req.body);
+
+  const result = await TaskCollection(req.body);
+  console.log(result);
   res.json({
     message: "data hase been updated successfully",
+    result,
   });
 });
 
@@ -48,14 +38,6 @@ router.post("/", (req, res, next) => {
 router.patch("/", (req, res, next) => {
   const { id, type } = req.body;
 
-  DB = DB.map((item) => {
-    if (item.id === id) {
-      item.type = type;
-      return item;
-    } else {
-      return item;
-    }
-  });
   res.json({
     message: "Task Updated",
   });
@@ -66,7 +48,6 @@ router.patch("/", (req, res, next) => {
 router.delete("/:id", (req, res, next) => {
   const { id } = req.params;
 
-  DB = DB.filter((item) => item.id !== +id);
   res.json({
     message: "Message from delete",
   });
